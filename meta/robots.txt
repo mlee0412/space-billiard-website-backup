@@ -1,0 +1,5 @@
+Sitemap: https://spacebilliard.com/sitemap.xml
+Sitemap: https://spacebilliard.com/news-sitemap.xml
+User-agent: *
+Disallow: /wordpress/wp-admin/
+Allow: /wordpress/wp-admin/admin-ajax.php

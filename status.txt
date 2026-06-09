@@ -1,0 +1,12 @@
+homepage_exit=0
+robots_exit=0
+sitemap.xml_exit=0
+sitemap_index.xml_exit=0
+wp-sitemap.xml_exit=0
+page-sitemap.xml_exit=0
+post-sitemap.xml_exit=0
+wp-json_exit=0
+wp-json_wp_v2_pages_exit=0
+wp-json_wp_v2_posts_exit=0
+wp-json_wp_v2_media_exit=0
+wp-json_wp_v2_users_exit=0
