@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Space Billiard Pool Hall &amp; Sports Bar | Koreatown NYC</title>
     <meta name="description" content="Pool tables, full bar service, bar bites, and late-night private events at Space Billiard in Koreatown NYC.">
-    <meta name="theme-color" content="#f7f2ea">
+    <meta name="theme-color" content="#0a0b14">
     <link rel="preload" as="image" href="assets/Space-Billiard-Background.jpg">
     <link rel="icon" href="assets/Space-Billiard-Logo-Single-Line-Black.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap">
     <link rel="stylesheet" href="styles.css">
     <style>
-      :root {
-        --accent: #b91c1c;
-        --accent-dark: #7f1111;
-        --ink: #171717;
-        --paper: #f7f2ea;
-      }
       .hero { --hero-image: url("assets/Space-Billiard-Background.jpg"); }
     </style>
   </head>
@@ -27,10 +24,15 @@
         <span>Space Billiard</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#experience">Experience</a>
-        <a href="#details">Details</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#faq">FAQ</a>
+        <details class="nav-menu">
+          <summary class="nav-burger" aria-label="Toggle navigation menu"><span class="nav-burger-icon"></span>Menu</summary>
+          <div class="nav-links">
+            <a href="#experience">Experience</a>
+            <a href="#details">Details</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#faq">FAQ</a>
+          </div>
+        </details>
         <a class="button-link" href="mailto:hello@spacebilliard.com?subject=Space%20Billiard%20Reservation%20Inquiry">Reserve A Table</a>
       </nav>
     </header>
