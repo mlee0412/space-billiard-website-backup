@@ -411,6 +411,154 @@ h3 {
   margin-top: 32px;
 }
 
+/* ---------- Hero entrance ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .hero .eyebrow,
+  .hero h1,
+  .hero-copy,
+  .hero-actions {
+    animation: rise-in 720ms cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+  .hero h1 { animation-delay: 120ms; }
+  .hero-copy { animation-delay: 240ms; }
+  .hero-actions { animation-delay: 380ms; }
+  @keyframes rise-in {
+    from { opacity: 0; transform: translateY(26px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+/* ---------- Stats band ---------- */
+.stats {
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0));
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: clamp(22px, 4vw, 34px) clamp(20px, 4vw, 58px);
+}
+
+.stat {
+  display: grid;
+  gap: 2px;
+  justify-items: center;
+  text-align: center;
+}
+
+.stat strong {
+  font-family: var(--display);
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(120deg, var(--ink) 30%, var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.stat span {
+  color: var(--faint);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---------- Marquee ---------- */
+.marquee-section { padding-bottom: clamp(46px, 6vw, 84px); }
+
+.marquee {
+  margin-top: var(--space-5);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee::-webkit-scrollbar { display: none; }
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  padding: 4px;
+}
+
+.marquee-on { overflow: hidden; }
+.marquee-on .marquee-track { animation: marquee-scroll 55s linear infinite; }
+.marquee-on:hover .marquee-track { animation-play-state: paused; }
+
+@keyframes marquee-scroll {
+  to { transform: translateX(-50%); }
+}
+
+.marquee-card {
+  margin: 0;
+  width: clamp(180px, 22vw, 240px);
+  flex-shrink: 0;
+}
+
+.marquee-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  transition: transform 300ms ease, border-color 300ms ease;
+}
+
+.marquee-card:hover img {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+}
+
+.marquee-card figcaption {
+  margin-top: 10px;
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- Client wall ---------- */
+.clients {
+  border-top: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0));
+}
+
+.client-wall {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: var(--space-5);
+}
+
+.client-chip {
+  display: grid;
+  place-items: center;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--line);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.client-chip:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
+}
+
+.client-chip img {
+  width: 100%;
+  max-height: 34px;
+  object-fit: contain;
+}
+
 /* ---------- Buttons ---------- */
 .button {
   position: relative;
@@ -605,21 +753,16 @@ h3 {
 .detail a:hover { color: var(--accent); }
 
 /* ---------- Gallery ---------- */
+/* Column widths follow the posters' intrinsic ratios so both render
+   uncropped at equal height; the lightbox shows the full image larger. */
 .gallery {
   display: grid;
-  grid-template-columns: 1.31fr 1fr;
+  grid-template-columns: 1fr 1.276fr;
   gap: 16px;
   margin-top: var(--space-5);
   align-items: start;
 }
 
-.gallery-stack {
-  display: grid;
-  gap: 16px;
-}
-
-/* Aspect ratios match each asset's intrinsic ratio so menu posters
-   render uncropped; the lightbox shows the same full image larger. */
 .gallery-item {
   position: relative;
   display: block;
@@ -629,8 +772,7 @@ h3 {
   background: var(--surface);
 }
 .gallery-item--lead { aspect-ratio: 981 / 1920; }
-.gallery-stack .gallery-item:nth-child(1) { aspect-ratio: 1252 / 1920; }
-.gallery-stack .gallery-item:nth-child(2) { aspect-ratio: 1 / 1; }
+.gallery-item:not(.gallery-item--lead) { aspect-ratio: 1252 / 1920; }
 
 .gallery-item img {
   width: 100%;
@@ -971,6 +1113,9 @@ footer a:hover { color: var(--accent-2); }
     grid-template-columns: 1fr;
   }
 
+  .stats-row { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 22px; }
+  .client-wall { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
   .mobile-cta { display: flex; }
 
   body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
@@ -1007,6 +1152,8 @@ footer a:hover { color: var(--accent-2); }
   .info-card, .detail-panel, .faq-grid details { padding: 22px; }
   .footer-base { flex-direction: column; }
   .lightbox-close { top: 6px; right: 6px; }
+  .client-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .marquee-card { width: 168px; }
 }
 
 /* ---------- Motion: scroll reveal ---------- */
@@ -1017,7 +1164,9 @@ footer a:hover { color: var(--accent-2); }
     .feature-photo,
     .gallery-item,
     .detail-panel,
-    .faq-grid details {
+    .faq-grid details,
+    .stat,
+    .client-chip {
       animation: reveal-up linear both;
       animation-timeline: view();
       animation-range: entry 0% entry 38%;
@@ -1025,6 +1174,17 @@ footer a:hover { color: var(--accent-2); }
     @keyframes reveal-up {
       from { opacity: 0; transform: translateY(26px); }
       to { opacity: 1; transform: none; }
+    }
+
+    /* Subtle parallax drift on the feature photo while it crosses the viewport */
+    .feature-photo img {
+      animation: photo-drift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+    @keyframes photo-drift {
+      from { transform: translateY(-3.5%) scale(1.1); }
+      to { transform: translateY(3.5%) scale(1.1); }
     }
   }
 }
@@ -1041,7 +1201,7 @@ html.no-vt .reveal-init.in {
 }
 html.no-vt .info-grid .info-card.reveal-init:nth-child(2) { transition-delay: 90ms; }
 html.no-vt .info-grid .info-card.reveal-init:nth-child(3) { transition-delay: 180ms; }
-html.no-vt .gallery-stack .gallery-item.reveal-init:nth-child(2) { transition-delay: 110ms; }
+html.no-vt .gallery .gallery-item.reveal-init:nth-child(2) { transition-delay: 110ms; }
 
 @media (prefers-reduced-motion: reduce) {
   *,
