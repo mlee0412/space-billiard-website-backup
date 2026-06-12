@@ -1115,6 +1115,13 @@ footer a:hover { color: var(--accent-2); }
 
 /* ---------- Tablet / mobile ---------- */
 @media (max-width: 900px) {
+  .site-header { gap: 12px; }
+  .brand { flex-shrink: 1; }
+  .brand img { max-width: min(170px, 38vw); }
+  .nav { flex-shrink: 0; gap: 10px; }
+  .nav .icon-link { display: none; }
+  .nav .button-link { min-height: 42px; padding: 10px 15px; }
+
   .nav-burger { display: inline-flex; }
 
   .nav-menu > .nav-links {
@@ -1164,9 +1171,12 @@ footer a:hover { color: var(--accent-2); }
 }
 
 @media (max-width: 540px) {
-  .brand img { max-width: min(176px, 58vw); }
-  .icon-link { display: none; }
-  .footer-brand .icon-link { display: inline-flex; }
+  /* Brand shrinks fluidly under flex pressure; nav stays intact */
+  .brand img { width: 100%; max-width: 148px; }
+  .nav-burger { padding: 10px 11px; }
+  .nav-burger-label { display: none; }
+  .nav .button-link { padding: 10px 13px; font-size: 13px; }
+  .cta-arrow { display: none; }
   .hero-content {
     width: auto;
     max-width: none;
