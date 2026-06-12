@@ -217,23 +217,56 @@ summary:focus-visible,
 }
 
 .nav .button-link {
-  min-height: 42px;
+  position: relative;
+  overflow: hidden;
+  min-height: 46px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 16px;
+  gap: 8px;
+  padding: 11px 22px;
   border-radius: 999px;
   color: var(--white);
   font-weight: 800;
-  background: linear-gradient(180deg, var(--accent-2), var(--accent));
-  box-shadow: 0 8px 22px rgba(255, 46, 77, 0.4);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  background: linear-gradient(135deg, var(--accent-2), var(--accent) 55%, var(--accent-deep));
+  box-shadow: 0 10px 26px rgba(255, 46, 77, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.28);
   transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.nav .button-link > span,
+.nav .button-link > .cta-arrow { position: relative; z-index: 1; }
+
+.nav .button-link .cta-arrow { transition: transform 200ms ease; }
+
+.nav .button-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.42) 50%, transparent 70%);
+  transform: translateX(-130%);
+  transition: transform 650ms ease;
 }
 
 .nav .button-link:hover {
   color: var(--white);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px rgba(255, 46, 77, 0.55);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px rgba(255, 46, 77, 0.62), inset 0 1px 0 rgba(255, 255, 255, 0.32);
+}
+
+.nav .button-link:hover .cta-arrow { transform: translateX(3px); }
+.nav .button-link:hover::after { transform: translateX(130%); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* drop-shadow (not box-shadow) so the pulse halo is independent of the
+     hover shadow and isn't clipped by overflow:hidden */
+  .nav .button-link { animation: cta-glow 2.8s ease-in-out infinite; }
+  .nav .button-link:hover { animation-play-state: paused; }
+  @keyframes cta-glow {
+    0%, 100% { filter: drop-shadow(0 0 0 rgba(255, 46, 77, 0)); }
+    50% { filter: drop-shadow(0 5px 16px rgba(255, 46, 77, 0.6)); }
+  }
 }
 
 /* ---------- Hero ---------- */
@@ -541,23 +574,31 @@ h3 {
 .client-chip {
   display: grid;
   place-items: center;
-  padding: 16px 18px;
+  padding: 18px 20px;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--surface);
   border: 1px solid var(--line);
-  transition: transform 200ms ease, box-shadow 200ms ease;
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
 }
 
 .client-chip:hover {
   transform: translateY(-3px);
+  border-color: var(--line-strong);
+  background: var(--surface-2);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.4);
 }
 
 .client-chip img {
   width: 100%;
-  max-height: 34px;
+  max-height: 30px;
   object-fit: contain;
+  /* Normalize mixed-brand logos to uniform white so every one reads on dark */
+  filter: brightness(0) invert(1);
+  opacity: 0.66;
+  transition: opacity 200ms ease;
 }
+
+.client-chip:hover img { opacity: 1; }
 
 /* ---------- Buttons ---------- */
 .button {
