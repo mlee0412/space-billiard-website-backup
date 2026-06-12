@@ -29,7 +29,7 @@
           <div class="nav-links">
             <a href="#experience">Experience</a>
             <a href="#details">Details</a>
-            <a href="#gallery">Gallery</a>
+            <a href="#gallery">Menus</a>
             <a href="#faq">FAQ</a>
           </div>
         </details>
@@ -46,6 +46,10 @@
 
     <main id="main">
       <section class="hero" id="top" aria-label="Space Billiard introduction">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/Space-Billiard-Background.jpg" aria-hidden="true" tabindex="-1">
+          <source src="https://cdn.spacebilliard.com/wordpress/wp-content/uploads/SpaceBilliard_2023-03-29_final_web.webm" type="video/webm">
+          <source src="https://cdn.spacebilliard.com/wordpress/wp-content/uploads/SpaceBilliard_2023-03-29_final_web.mp4" type="video/mp4">
+        </video>
         <div class="hero-stars" aria-hidden="true"></div>
         <div class="hero-content">
           <p class="eyebrow">Koreatown Pool Hall &amp; Sports Bar</p>
@@ -94,7 +98,7 @@
       <section class="section feature-band" id="details">
         <div class="section-inner feature-layout">
           <div class="feature-photo">
-            <img src="assets/gallery-2.jpg" width="1252" height="1920" alt="Space Billiard featured venue view" loading="lazy">
+            <img src="assets/Space-Billiard-Background.jpg" width="1000" height="750" alt="Inside the Space Billiard pool hall" loading="lazy">
           </div>
           <div>
             <p class="section-kicker">Venue Details</p>
@@ -114,20 +118,20 @@
 
       <section class="section" id="gallery">
         <div class="section-inner">
-          <p class="section-kicker">Gallery</p>
-          <h2>See the room, the mood, and the service style before you arrive.</h2>
+          <p class="section-kicker">Menus &amp; More</p>
+          <h2>Browse the menus, the specials, and the bar bites before you arrive.</h2>
           <div class="gallery">
-            <a class="gallery-item gallery-item--lead" href="#lb-1" aria-label="Enlarge venue atmosphere photo">
-              <img src="assets/gallery-1.jpg" width="981" height="1920" alt="Space Billiard venue atmosphere" loading="lazy" fetchpriority="low">
+            <a class="gallery-item gallery-item--lead" href="#lb-1" aria-label="View venue info and rewards poster">
+              <img src="assets/gallery-1.jpg" width="981" height="1920" alt="Space Billiard venue info and rewards poster" loading="lazy" fetchpriority="low">
               <span class="gallery-zoom" aria-hidden="true">View</span>
             </a>
             <div class="gallery-stack">
-              <a class="gallery-item" href="#lb-2" aria-label="Enlarge hospitality photo">
-                <img src="assets/gallery-2.jpg" width="1252" height="1920" alt="Space Billiard hospitality detail 2" loading="lazy" fetchpriority="low">
+              <a class="gallery-item" href="#lb-2" aria-label="View drinks menu">
+                <img src="assets/gallery-2.jpg" width="1252" height="1920" alt="Space Billiard drinks menu: shooters, bombs, hard teas, beverages, and slush" loading="lazy" fetchpriority="low">
                 <span class="gallery-zoom" aria-hidden="true">View</span>
               </a>
-              <a class="gallery-item" href="#lb-3" aria-label="Enlarge hospitality photo">
-                <img src="assets/gallery-3.jpg" width="1920" height="1920" alt="Space Billiard hospitality detail 3" loading="lazy" fetchpriority="low">
+              <a class="gallery-item" href="#lb-3" aria-label="View food photo">
+                <img src="assets/gallery-3.jpg" width="1920" height="1920" alt="Loaded nachos from the Space Billiard bar menu" loading="lazy" fetchpriority="low">
                 <span class="gallery-zoom" aria-hidden="true">View</span>
               </a>
             </div>
@@ -227,21 +231,21 @@
       <a class="lightbox-backdrop" href="#gallery" aria-label="Close photo viewer" tabindex="-1"></a>
       <div class="lightbox-inner">
         <a class="lightbox-close" href="#gallery" aria-label="Close photo viewer">&times;</a>
-        <img src="assets/gallery-1.jpg" alt="Space Billiard venue atmosphere">
+        <img src="assets/gallery-1.jpg" alt="Space Billiard venue info and rewards poster">
       </div>
     </div>
     <div class="lightbox" id="lb-2" role="dialog" aria-modal="true" aria-label="Photo viewer">
       <a class="lightbox-backdrop" href="#gallery" aria-label="Close photo viewer" tabindex="-1"></a>
       <div class="lightbox-inner">
         <a class="lightbox-close" href="#gallery" aria-label="Close photo viewer">&times;</a>
-        <img src="assets/gallery-2.jpg" alt="Space Billiard hospitality detail 2">
+        <img src="assets/gallery-2.jpg" alt="Space Billiard drinks menu: shooters, bombs, hard teas, beverages, and slush">
       </div>
     </div>
     <div class="lightbox" id="lb-3" role="dialog" aria-modal="true" aria-label="Photo viewer">
       <a class="lightbox-backdrop" href="#gallery" aria-label="Close photo viewer" tabindex="-1"></a>
       <div class="lightbox-inner">
         <a class="lightbox-close" href="#gallery" aria-label="Close photo viewer">&times;</a>
-        <img src="assets/gallery-3.jpg" alt="Space Billiard hospitality detail 3">
+        <img src="assets/gallery-3.jpg" alt="Loaded nachos from the Space Billiard bar menu">
       </div>
     </div>
 
@@ -288,6 +292,11 @@
 
         // Scroll-reveal fallback where CSS view-timeline is unsupported (Safari/Firefox)
         var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var heroVideo = document.querySelector(".hero-video");
+        if (heroVideo && prefersReduced) {
+          heroVideo.pause();
+          heroVideo.removeAttribute("autoplay");
+        }
         var hasViewTimeline = window.CSS && CSS.supports && CSS.supports("animation-timeline: view()");
         if (!hasViewTimeline && !prefersReduced && "IntersectionObserver" in window) {
           root.classList.add("no-vt");
