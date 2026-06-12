@@ -27,3 +27,8 @@ Vercel project: `space-billiard-emergency-site`
 
 This repo preserves the original public-surface recovery snapshot and adds a deployable static preview for emergency continuity, AI agents, developers, and human designers.
 
+## Latest Original Site Capture
+
+- `original-site-capture/20260612-0420-live/` - live public capture from the restored original website.
+- Includes homepage HTML, headers, robots/sitemaps, DNS, public WordPress REST structure, media/page indexes, and homepage-linked public assets.
+- Use this folder as the current original-site reference while building the replacement site.
