@@ -115,37 +115,36 @@ summary:focus-visible,
 }
 
 .brand {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   min-width: 0;
-  gap: 12px;
   text-decoration: none;
-  font-family: var(--display);
-  font-weight: 700;
-  letter-spacing: 0.01em;
 }
 
 .brand img {
   width: auto;
-  max-width: min(210px, 44vw);
+  max-width: min(230px, 52vw);
   height: auto;
-  max-height: 44px;
+  max-height: 46px;
   object-fit: contain;
   filter: brightness(0) invert(1);
+  transition: opacity 160ms ease;
 }
 
-.brand span {
-  max-width: 180px;
-  overflow-wrap: break-word;
-  line-height: 1.05;
-}
+.brand:hover img { opacity: 0.82; }
 
 .nav {
   display: flex;
   align-items: center;
-  gap: clamp(12px, 2vw, 22px);
+  gap: clamp(16px, 2.6vw, 30px);
   font-size: 14px;
   font-weight: 700;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .nav-menu { position: relative; }
@@ -203,17 +202,17 @@ summary:focus-visible,
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border-radius: 999px;
-  border: 1px solid var(--line-strong);
-  color: var(--ink);
-  background: var(--surface);
+  border: 1px solid transparent;
+  color: var(--muted);
+  background: transparent;
   transition: color 160ms ease, border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
 }
 .icon-link:hover {
   color: var(--accent-2);
-  border-color: color-mix(in srgb, var(--accent) 50%, var(--line-strong));
+  background: var(--surface);
   transform: translateY(-1px);
 }
 
@@ -925,6 +924,10 @@ footer a:hover { color: var(--accent-2); }
 @media (min-width: 901px) {
   .nav-burger { display: none; }
   .nav-menu > .nav-links { display: flex !important; }
+  .nav-menu {
+    padding-right: clamp(16px, 2.2vw, 28px);
+    border-right: 1px solid var(--line);
+  }
 }
 
 /* ---------- Tablet / mobile ---------- */
@@ -975,8 +978,7 @@ footer a:hover { color: var(--accent-2); }
 }
 
 @media (max-width: 540px) {
-  .brand img { max-width: min(168px, 62vw); }
-  .brand span { font-size: 14px; }
+  .brand img { max-width: min(176px, 58vw); }
   .icon-link { display: none; }
   .footer-brand .icon-link { display: inline-flex; }
   .hero-content {
