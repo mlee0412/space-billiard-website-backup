@@ -1,0 +1,18 @@
+{
+  "redirects": [
+    { "source": "/reserve", "destination": "/#reserve", "permanent": false },
+    { "source": "/reserve/", "destination": "/#reserve", "permanent": false },
+    { "source": "/booknow", "destination": "/#reserve", "permanent": false },
+    { "source": "/booknow/", "destination": "/#reserve", "permanent": false },
+    { "source": "/contact", "destination": "/#reserve", "permanent": false },
+    { "source": "/contact/", "destination": "/#reserve", "permanent": false },
+    { "source": "/menu", "destination": "/#gallery", "permanent": false },
+    { "source": "/menu/", "destination": "/#gallery", "permanent": false },
+    { "source": "/pdf-menus", "destination": "/#gallery", "permanent": false },
+    { "source": "/pdf-menus/", "destination": "/#gallery", "permanent": false },
+    { "source": "/drinkmenu", "destination": "/#gallery", "permanent": false },
+    { "source": "/drinkmenu/", "destination": "/#gallery", "permanent": false },
+    { "source": "/eventmenu", "destination": "/#gallery", "permanent": false },
+    { "source": "/eventmenu/", "destination": "/#gallery", "permanent": false }
+  ]
+}
