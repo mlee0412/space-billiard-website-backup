@@ -872,6 +872,48 @@ h3 {
 .detail a { color: var(--accent-2); }
 .detail a:hover { color: var(--accent); }
 
+/* ---------- Menu downloads ---------- */
+.menu-downloads {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 14px;
+  margin-top: var(--space-5);
+}
+
+.menu-download {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.menu-download span {
+  min-width: 0;
+  font-family: var(--display);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.menu-download small {
+  flex: 0 0 auto;
+  color: var(--accent-2);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.menu-download:hover {
+  border-color: color-mix(in srgb, var(--accent) 42%, var(--line));
+  background: var(--surface-2);
+}
+
 /* ---------- Gallery ---------- */
 /* Column widths follow the posters' intrinsic ratios so both render
    uncropped at equal height; the lightbox shows the full image larger. */
@@ -1154,7 +1196,7 @@ footer {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
   gap: clamp(24px, 5vw, 64px);
   padding-bottom: var(--space-5);
 }
@@ -1255,6 +1297,7 @@ footer a:hover { color: var(--accent-2); }
   .info-grid,
   .faq-grid,
   .details,
+  .menu-downloads,
   .gallery,
   .footer-grid {
     grid-template-columns: 1fr;
@@ -1266,7 +1309,6 @@ footer a:hover { color: var(--accent-2); }
   .mobile-cta { display: flex; }
 
   body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
-  .mobile-cta a:last-child { display: none; }
 }
 
 @media (max-width: 540px) {
