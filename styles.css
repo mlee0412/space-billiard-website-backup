@@ -544,6 +544,57 @@ h3 {
   flex-shrink: 0;
 }
 
+.marquee-card.menu-card {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: clamp(180px, 22vw, 240px);
+  padding: 20px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(234, 43, 67, 0.2)),
+    var(--surface);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: transform 300ms ease, border-color 300ms ease, background-color 300ms ease;
+}
+
+.marquee-card.menu-card::before {
+  content: "";
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 44%, var(--line));
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.marquee-card.menu-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  background-color: var(--surface-2);
+}
+
+.menu-card-kicker {
+  position: relative;
+  z-index: 1;
+  width: fit-content;
+  margin-bottom: 12px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.24);
+}
+
 .marquee-card img {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -568,6 +619,16 @@ h3 {
   text-align: center;
 }
 
+.marquee-card.menu-card figcaption {
+  position: relative;
+  z-index: 1;
+  margin-top: 0;
+  color: var(--text);
+  font-size: clamp(16px, 1.7vw, 20px);
+  line-height: 1.1;
+  text-align: left;
+}
+
 /* ---------- Client wall ---------- */
 .clients {
   border-top: 1px solid var(--line);
@@ -584,10 +645,18 @@ h3 {
 .client-chip {
   display: grid;
   place-items: center;
+  min-height: 68px;
   padding: 18px 20px;
   border-radius: var(--radius-sm);
   background: var(--surface);
   border: 1px solid var(--line);
+  color: var(--text);
+  font-family: var(--display);
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-align: center;
   transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background-color 200ms ease;
 }
 
