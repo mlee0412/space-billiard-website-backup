@@ -2,6 +2,8 @@
   "redirects": [
     { "source": "/reserve", "destination": "/#reserve", "permanent": false },
     { "source": "/reserve/", "destination": "/#reserve", "permanent": false },
+    { "source": "/reservations", "destination": "/#reserve", "permanent": false },
+    { "source": "/reservations/", "destination": "/#reserve", "permanent": false },
     { "source": "/booknow", "destination": "/#reserve", "permanent": false },
     { "source": "/booknow/", "destination": "/#reserve", "permanent": false },
     { "source": "/contact", "destination": "/#reserve", "permanent": false },
@@ -13,6 +15,16 @@
     { "source": "/drinkmenu", "destination": "/#gallery", "permanent": false },
     { "source": "/drinkmenu/", "destination": "/#gallery", "permanent": false },
     { "source": "/eventmenu", "destination": "/#gallery", "permanent": false },
-    { "source": "/eventmenu/", "destination": "/#gallery", "permanent": false }
+    { "source": "/eventmenu/", "destination": "/#gallery", "permanent": false },
+    { "source": "/pricing", "destination": "/#details", "permanent": false },
+    { "source": "/pricing/", "destination": "/#details", "permanent": false },
+    { "source": "/about", "destination": "/#experience", "permanent": false },
+    { "source": "/about/", "destination": "/#experience", "permanent": false },
+    { "source": "/faq", "destination": "/#faq", "permanent": false },
+    { "source": "/faq/", "destination": "/#faq", "permanent": false },
+    { "source": "/terms-of-use", "destination": "/", "permanent": false },
+    { "source": "/terms-of-use/", "destination": "/", "permanent": false },
+    { "source": "/privacy-policy", "destination": "/", "permanent": false },
+    { "source": "/privacy-policy/", "destination": "/", "permanent": false }
   ]
 }
