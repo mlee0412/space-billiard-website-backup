@@ -880,6 +880,68 @@ h3 {
   margin-top: var(--space-5);
 }
 
+.inline-menu {
+  display: grid;
+  gap: 12px;
+  margin: var(--space-5) 0 8px;
+}
+
+.inline-menu details {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.inline-menu summary {
+  min-height: 52px;
+  padding: 15px 18px;
+  color: var(--ink);
+  font-family: var(--display);
+  font-weight: 700;
+  list-style: none;
+  cursor: pointer;
+}
+
+.inline-menu summary::-webkit-details-marker { display: none; }
+
+.inline-menu summary::after {
+  content: "+";
+  float: right;
+  color: var(--accent-2);
+}
+
+.inline-menu details[open] summary::after { content: "-"; }
+
+.menu-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px;
+  background: var(--line);
+}
+
+.menu-columns p {
+  margin: 0;
+  padding: 16px;
+  background: color-mix(in srgb, var(--bg-2) 76%, var(--surface));
+}
+
+.menu-columns strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent-2);
+  font-family: var(--display);
+  font-size: 14px;
+}
+
+.menu-columns span {
+  display: block;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
 .menu-download {
   min-height: 84px;
   display: flex;
@@ -1300,6 +1362,10 @@ footer a:hover { color: var(--accent-2); }
   .menu-downloads,
   .gallery,
   .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-columns {
     grid-template-columns: 1fr;
   }
 
