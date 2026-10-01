@@ -916,30 +916,93 @@ h3 {
 .menu-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  padding: 1px;
-  background: var(--line);
+  align-items: start;
+  gap: 16px;
+  padding: 18px;
+  border-top: 1px solid var(--line);
 }
 
-.menu-columns p {
-  margin: 0;
-  padding: 16px;
+.menu-category {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--bg-2) 76%, var(--surface));
 }
 
-.menu-columns strong {
-  display: block;
-  margin-bottom: 6px;
+.menu-category h3 {
+  margin: 0 0 14px;
   color: var(--accent-2);
   font-family: var(--display);
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
-.menu-columns span {
-  display: block;
-  color: var(--muted);
+.menu-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-item {
+  min-width: 0;
+  padding: 13px 0;
+}
+
+.menu-item + .menu-item { border-top: 1px solid var(--line); }
+.menu-item:first-child { padding-top: 0; }
+.menu-item:last-child { padding-bottom: 0; }
+
+.menu-item-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.menu-item-name {
+  min-width: 0;
+  color: var(--ink);
   font-size: 14px;
+  font-weight: 600;
   line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.menu-item-price {
+  display: grid;
+  gap: 3px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.menu-item-price > span { display: block; }
+
+.menu-item-description,
+.menu-category-note {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.menu-category-note {
+  margin: 0 0 16px;
+  padding-left: 10px;
+  border-left: 2px solid var(--line-strong);
+}
+
+@media (max-width: 540px) {
+  .menu-columns { gap: 12px; padding: 12px; }
+  .menu-category { padding: 16px; }
+  .menu-item-heading { gap: 10px; }
 }
 
 .menu-download {
