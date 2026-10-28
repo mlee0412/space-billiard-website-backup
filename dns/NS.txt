@@ -1,2 +1,0 @@
-andy.ns.cloudflare.com.
-emma.ns.cloudflare.com.
